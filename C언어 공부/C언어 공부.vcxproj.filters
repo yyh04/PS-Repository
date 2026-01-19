@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="동적 메모리 할당 정수 5개.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="구조체 동적 메모리 할당.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="이중포인터.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="선택 정렬.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="버블 정렬.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="삽입 정렬.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="퀵 정렬.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2752.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2750.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2751.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="병합 정렬.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1316.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 25206.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2738.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10798.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2563.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2745.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11005.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2720.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2903.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2292.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1193.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2869.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 5086.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2501.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9506.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1978.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2581.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11653.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 27323.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1085.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 3009.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 15894.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9063.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 5073.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24262.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24263.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24264.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24265.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24266.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24267.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24313.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2231.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 19532.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1018.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1436.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2839.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2587.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 25305.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 28431.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10718.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10989.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1427.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11650.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 15643.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9999.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2555.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11651.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1181.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10814.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 18870.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10815.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2741.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2742.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 14425.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2440.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9316.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2441.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7287.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10172.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10817.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11721.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="해시테이블 공부.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="해시 테이블 체화용.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10757.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10872.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2420.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1271.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1550.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4101.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4562.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="C++ STL sort%28%29 함수 다루기 1-%282%29.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="C++ STL sort() 함수 다루기 1-(3).cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10828.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 28278.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10773.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9012.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9093.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1874.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1448.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1406.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10845.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4949.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 12789.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="스택 연결리스트.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1535.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1174.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1388.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1259.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4153.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1080.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2609.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11050.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11866.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="연결스트 기본형.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1920.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2164.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10816.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1063.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10866.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1260.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2257.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2577.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 13023.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp 연산자 오버로딩.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp pair sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp 이중 pair.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="heap sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="counting sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1181.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1431.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10989.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BFS.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DFS.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24479.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24480.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24444.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24445.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2606.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1260.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2667.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1012.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2178.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1697.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 18258.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 28701.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7562.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7576.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7569.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 16928.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2206.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1707.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11723.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1620.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2475.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7785.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1764.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1269.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11478.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1934.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 13241.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1735.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2485.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4134.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1929.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 4948.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 17103.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 13909.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 28279.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 15829.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1809.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2754.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1712.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2744.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2346.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 24511.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11047.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11399.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1003.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1463.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2579.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 17219.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 9095.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2775.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1676.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 7568.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 18110.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1966.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1654.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2577.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2920.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 10250.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1932.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2083.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1904.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1967.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1002.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 11444.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1043.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1504.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 1987.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 2448.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 32775.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 6750.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 23397.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 5956.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="백준 15686.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
