@@ -23,22 +23,11 @@ bool IsInRange(int _r, int _c) {
 	}
 }
 
-//void Print() {
-//	cout << "Print called\n";
-//	for (int i = 0; i < n; i++) {
-//		for (int j = 0; j < m; j++) {
-//			cout << map[i][j] << ' ';
-//		}
-//		cout << '\n';
-//	}
-//}
-
 void FindEmpty(int _r, int _c) {
 	if (emptyVisit[_r][_c] == true || map[_r][_c] == '1' || !IsInRange(_r, _c)) {
 		return;
 	}
 
-	//cout << "FindEmpty called: " << _r << ' ' << _c << '\n';
 	emptyVisit[_r][_c] = true;
 	map[_r][_c] = 'X';
 	int nextR;
@@ -77,10 +66,6 @@ void Init() {
 			FindEmpty(i, j * m);
 		}
 	}
-
-	//cout << "Init complete\n";
-	//cout << "cheeseCnt: " << cheeseCnt << ", deleteCnt: " << deleteCnt << '\n';
-	//Print();
 }
 
 void FindCCheese(int _r, int _c) {
@@ -88,7 +73,6 @@ void FindCCheese(int _r, int _c) {
 		return;
 	}
 
-	//cout << "FindCCheese called: " << _r << ' ' << _c << '\n';
 	cheeseVisit[_r][_c] = true;
 	int nextR;
 	int nextC;
@@ -112,7 +96,6 @@ void FindCCheese(int _r, int _c) {
 }
 
 void DeleteC() {
-	//cout << "DeleteC called\n";
 	for (int i = 0; i < cCheeseVec.size(); i++) {
 		map[cCheeseVec[i].first][cCheeseVec[i].second] = 'X';
 		cheeseCnt--;
@@ -122,7 +105,6 @@ void DeleteC() {
 	deleteCnt++;
 	cCheeseVec.clear();
 	memset(cheeseVisit, 0, sizeof(cheeseVisit));
-	//cout << "cheeseCnt: " << cheeseCnt << ", deleteCnt: " << deleteCnt << '\n';
 }
 
 int main(void) {
@@ -138,13 +120,9 @@ int main(void) {
 				FindCCheese(i, j);
 			}
 		}
-		//Print();
 		DeleteC();
-		//Print();
 	}
 
-	//Print();
 	cout << deleteCnt;
-	//Print();
 	return 0;
 }

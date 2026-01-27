@@ -3,7 +3,13 @@
 using namespace std;
 
 int tree[10001];
+int visit[10001];
 int arr[10001];
+
+void SearchLeft(int);
+void SearchRight(int);
+void Visit(int);
+void LRV(int);
 
 void Init() {
 	int input;
@@ -12,9 +18,8 @@ void Init() {
 	while (1) {
 		cin >> input;
 
-		if (cin.eof() == true) {
+		if (cin.eof() == true)
 			break;
-		}
 
 		arr[idx++] = input;
 	}
@@ -22,29 +27,76 @@ void Init() {
 	tree[0] = arr[0];
 }
 
-int SearchParentsNode(int __input, int __curIdx) {
+int SearchParentsNode(int __arrIdx, int __curIdx) {
+	if(__curIdx == 0)
+		return 
+
 	int parentsNodeIdx = (__curIdx - 1) / 2;
 
-	if (tree[parentsNodeIdx] > __input) {
-		return SearchParentsNode(__input, parentsNodeIdx);
+	if (tree[__curIdx] < arr[__arrIdx])
+		return SearchParentsNode(__arrIdx, parentsNodeIdx);
+	else if (tree[__curIdx] > arr[__arrIdx])
+		return __curIdx  * 2 + 1;
+
+	cout << "SearchParentsNode(" << __arrIdx << ", " << __curIdx << ") Error\n";
+	return 0;
+}
+
+void Fill(int _arrIdx, int _curIdx) {
+	if (tree[_curIdx] > arr[_arrIdx]) {
+		tree[_curIdx * 2 + 1] = arr[_arrIdx];
+		Fill(_arrIdx + 1, _curIdx * 2 + 1);
 	}
-	else if (tree[parentsNodeIdx] < __input) {
-		return parentsNodeIdx;
-	}
-	else {
-		cout << "SearchParentsNode(" << __input << ", " << __curIdx << ") Error\n";
-		return;
+	else if(tree[_curIdx] < arr[_arrIdx]) {
+		int targetNodeIdx;
+
+		if (_curIdx != 0)
+			targetNodeIdx = SearchParentsNode(_arrIdx, (_curIdx - 1) / 2);
+		else if(_curIdx == 0)
+			targetNodeIdx = 0;
+
+		tree[targetNodeIdx * 2 + 2] = arr[_arrIdx];
+		Fill(_arrIdx + 1, targetNodeIdx * 2 + 2);
 	}
 }
 
-void Fill(int _input, int _curIdx) { // tree에 이미 값이 있을 수도 있음 @@@@@@@@@@
-	if (tree[_curIdx] > _input) {
-		tree[_curIdx * 2 + 1] = _input;
+void Print() {
+	for (int i = 0; i < 10001; i++) {
+		cout << tree[i] << ' ';
 	}
-	else if(tree[_curIdx] < _input) {
-		int parentsNodeIdx = SearchParentsNode(_input, _curIdx);
-		tree[parentsNodeIdx] = _input;
-	}
+}
+
+void SearchLeft(int _curIdx) {
+	if (tree[_curIdx] == 0 || visit[_curIdx] == true)
+		return;
+
+	visit[_curIdx] = true;
+	LRV(_curIdx);
+	cout << tree[_curIdx] << '\n';
+}
+
+void SearchRight(int _curIdx) {
+	if (tree[_curIdx] == 0 || visit[_curIdx] == true)
+		return;
+
+	visit[_curIdx] = true;
+	LRV(_curIdx);
+	cout << tree[_curIdx] << '\n';
+}
+
+void Visit(int _curIdx) {
+	if (tree[_curIdx] == 0 || visit[_curIdx] == true)
+		return;
+
+	visit[_curIdx] = true;
+	LRV(_curIdx);
+	cout << tree[_curIdx] << '\n';
+}
+
+void LRV(int _curIdx) {
+	SearchLeft(_curIdx * 2 + 1);
+	SearchRight(_curIdx * 2 + 2);
+	Visit(_curIdx);
 }
 
 int main(void) {
@@ -53,6 +105,8 @@ int main(void) {
 	cout.tie(NULL);
 
 	Init();
+	Fill(1, 0);
+	LRV(0);
 
 	return 0;
 }
