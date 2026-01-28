@@ -2,29 +2,32 @@
 
 using namespace std;
 
-Node* root;
-Node* nodePtr;
-int arr[10001];
-
 struct Node {
 	bool visit;
 	int key;
-	Node* parent;
 	Node* left;
 	Node* right;
 
 	Node(int _key) {
 		visit = false;
 		key = _key;
-		parent = NULL;
 		left = NULL;
 		right = NULL;
 	}
 };
 
+Node* root;
+Node* nodePtr;
+int arr[10001];
+int idx = 0;
+
+void LRV(Node*);
+void SearchLeft(Node*);
+void SearchRight(Node*);
+void SearchVisit(Node*);
+
 void Init() {
 	int input;
-	int idx = 0;
 
 	while (1) {
 		cin >> input;
@@ -37,37 +40,105 @@ void Init() {
 
 	root = new Node(arr[0]);
 	nodePtr = root;
-	
 }
 
-Node* SearchParent(Node* _curNodePtr, int __arrIdx) {
-	if (_curNodePtr->key < arr[__arrIdx]) {
-		if (_curNodePtr = root) {
-			nodePtr = root;
-			return root;
-		}
-		else {
-			return SearchParent(_curNodePtr->parent, __arrIdx);
-		}
+//Node* SearchParent(Node* _curNodePtr, int __arrIdx) {
+//	if (_curNodePtr->key < arr[__arrIdx]) {
+//		if (_curNodePtr == root) {
+//			nodePtr = root;
+//			return root;
+//		}
+//		else {
+//			return SearchParent(_curNodePtr->parent, __arrIdx);
+//		}
+//	}
+//	else if (_curNodePtr->key > arr[__arrIdx]) {
+//		return _curNodePtr->left;
+//	}
+//
+//	return NULL;
+//}
+
+//void Fill(int _arrIdx) {
+//	if (_arrIdx >= idx)
+//		return;
+//
+//	if (nodePtr->key > arr[_arrIdx]) {
+//		nodePtr->left = new Node(arr[_arrIdx]);
+//		nodePtr->left->parent = nodePtr;
+//		nodePtr = nodePtr->left;
+//		//cout << "Fill(" << _arrIdx << "): " << nodePtr->parent->key << "의 왼쪽 자식: " << nodePtr->key << '\n';
+//	}
+//	else if (nodePtr->key < arr[_arrIdx]) {
+//		nodePtr = SearchParent(nodePtr, _arrIdx);
+//		nodePtr->right = new Node(arr[_arrIdx]);
+//		nodePtr->right->parent = nodePtr;
+//		nodePtr = nodePtr->right;
+//		//cout << "Fill(" << _arrIdx << "): " << nodePtr->parent->key << "의 오른쪽 자식: " << nodePtr->key << '\n';
+//	}
+//	Fill(_arrIdx + 1);
+//}
+
+void Fill(int _input, Node*& _curNodePtr) {
+	if (_curNodePtr == NULL) {
+		_curNodePtr = new Node(_input);
+		return;
 	}
-	else if (_curNodePtr->key > arr[__arrIdx]) {
-		return _curNodePtr;
+
+	if (_curNodePtr->key > _input) {
+		Fill(_input, _curNodePtr->left);
+	}
+	else {
+		Fill(_input, _curNodePtr->right);
 	}
 }
 
-void Fill(int _arrIdx) {
-	if (nodePtr->key > arr[_arrIdx]) {
-		nodePtr->left = new Node(arr[_arrIdx]);
-		nodePtr->left->parent = nodePtr;
-		nodePtr = nodePtr->left;
+void RunFill() {
+	for (int i = 1; i < idx; i++) {
+		Fill(arr[i], root);
 	}
-	else if (nodePtr->key < arr[_arrIdx]) {
-		nodePtr = SearchParent(nodePtr, _arrIdx);
-		nodePtr->right = new Node(arr[_arrIdx]);
-		nodePtr->right->parent = nodePtr;
-		nodePtr = nodePtr->right;
+}
+
+void SearchLeft(Node* _curNodePtr) {
+	if (_curNodePtr == NULL || _curNodePtr->visit == true) {
+		return;
 	}
-	Fill(_arrIdx + 1);
+
+	_curNodePtr->visit = true;
+	LRV(_curNodePtr);
+	cout << _curNodePtr->key << '\n';
+}
+
+void SearchRight(Node* _curNodePtr) {
+	if (_curNodePtr == NULL || _curNodePtr->visit == true) {
+		return;
+	}
+
+	_curNodePtr->visit = true;
+	LRV(_curNodePtr);
+	cout << _curNodePtr->key << '\n';
+}
+
+void SearchVisit(Node* _curNodePtr) {
+	if (_curNodePtr == NULL || _curNodePtr->visit == true) {
+		return;
+	}
+
+	_curNodePtr->visit = true;
+	LRV(_curNodePtr);
+	cout << _curNodePtr->key << '\n';
+}
+
+//void VLR(Node* _curNodePtr) {
+//	SearchVisit(_curNodePtr);
+//	SearchLeft(_curNodePtr->left);
+//	SearchRight(_curNodePtr->right);
+//}
+
+void LRV(Node* _curNodePtr) {
+	SearchLeft(_curNodePtr->left);
+	SearchRight(_curNodePtr->right);
+	SearchVisit(_curNodePtr);
 }
 
 int main(void) {
@@ -76,6 +147,8 @@ int main(void) {
 	cout.tie(NULL);
 
 	Init();
+	RunFill();
+	LRV(root);
 
 	return 0;
 }
