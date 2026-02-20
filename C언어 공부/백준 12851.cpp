@@ -6,18 +6,18 @@ using namespace std;
 
 int n, k;
 int idx;
+int route;
 int sec[100001];
-int cnt[100001];
-queue<int> q;
+bool visit[100001];
+queue<pair<int,int>> q;
 
 void Init() {
 	cin >> n >> k;
-	cnt[n] = 1;
 	idx = 1;
 	fill(sec, sec + 100001, 999999999);
 }
 
-void Find(int _from, int _to, int _sec) {
+void Find(int _to, int _sec) {
 	if (_to < 0 || 100000 < _to) {
 		return;
 	}
@@ -26,21 +26,28 @@ void Find(int _from, int _to, int _sec) {
 		return;
 	}
 
-	if (cnt[_to] == 0) {
+	if (sec[_to] > _sec) {
 		sec[_to] = _sec;
+	}	
+
+	if (_to == k && sec[_to] == _sec) {
+		route++;
 	}
 
-	if (sec[_to] == _sec) {
-		cnt[_to] += cnt[_from];
+	if (!visit[_to]) {
+		q.push({ _to, _sec });
 	}
-
-	q.push(_to);
 }
 
 void Search(int _cur, int _sec) {
-	Find(_cur, _cur - 1, _sec);
-	Find(_cur, _cur + 1, _sec);
-	Find(_cur, _cur * 2, _sec);
+	Find(_cur - 1, _sec);
+	Find(_cur + 1, _sec);
+
+	if (_cur != 1 && _cur != 0) {
+		Find(_cur * 2, _sec);
+	}
+
+	visit[_cur] = true;
 	idx++;
 }
 
@@ -48,8 +55,17 @@ void Solve() {
 	Search(n, idx); // ÃÊ±â Å½»ö
 
 	while (!q.empty()) {
-		Search(q.front(), idx);
+		Search(q.front().first, q.front().second + 1);
 		q.pop();
+	}
+}
+
+void Print() {
+	if (n == k) {
+		cout << 0 << '\n' << 1;
+	}
+	else {
+		cout << sec[k] << '\n' << route;
 	}
 }
 
@@ -60,7 +76,7 @@ int main(void) {
 
 	Init();
 	Solve();
-	cout << sec[k] << '\n' << cnt[k];
+	Print();
 
 	return 0;
 }
