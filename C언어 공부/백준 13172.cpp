@@ -1,18 +1,20 @@
 #include <iostream>
-#define X 1000000007
 
 using namespace std;
 
 int m;
 int n, s;
-unsigned long long arr[10000];
-unsigned long long square[10000][31];
+unsigned long long X;
+unsigned long long arr[10001];
+unsigned long long square[10001][31];
+unsigned long long ans;
 
 void Init() {
 	ios::sync_with_stdio(false);
 	cout.tie(0);
 	cin.tie(0);
 
+	X = 1000000007;
 	cin >> m;
 
 	for (int i = 0; i < m; i++) {
@@ -23,7 +25,7 @@ void Init() {
 	}
 }
 
-void Square(long long _input, int _m, int _idx) {
+void Square(unsigned long long _input, int _m, int _idx) {
 	square[_m][_idx] = ((_input % X) * (_input % X)) % X;
 }
 
@@ -34,8 +36,8 @@ void Solve() {
 		}
 	}
 
-	for (int i = 0; i < n; i++) {
-		square[i][30] = ((square[i][1] % X) * (square[i][30] % X)) % X;
+	for (int i = 0; i < m; i++) {
+		square[i][30] = ((square[i][0] % X) * (square[i][30] % X)) % X;
 		square[i][30] = ((square[i][2] % X) * (square[i][30] % X)) % X;
 		square[i][30] = ((square[i][9] % X) * (square[i][30] % X)) % X;
 		square[i][30] = ((square[i][11] % X) * (square[i][30] % X)) % X;
@@ -50,14 +52,12 @@ void Solve() {
 		square[i][30] = ((square[i][27] % X) * (square[i][30] % X)) % X;
 		square[i][30] = ((square[i][28] % X) * (square[i][30] % X)) % X;
 		square[i][30] = ((square[i][29] % X) * (square[i][30] % X)) % X;
-
+		ans = (((square[i][30] % X) * (arr[i] % X) % X) + (ans % X)) % X;
 	}
 }
 
 void Print() {
-	for (int i = 0; i < m; i++) {
-		cout << ((arr[i] % X) * (square[i][30] % X)) % X;
-	}
+	cout << ans;
 }
 
 int main(void) {

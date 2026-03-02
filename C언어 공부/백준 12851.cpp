@@ -35,7 +35,7 @@ void Find(int _to, int _sec) {
 	}
 
 	if (!visit[_to]) {
-		q.push({ _to, _sec });
+		q.push({ _to, _sec });																				
 	}
 }
 
@@ -43,7 +43,7 @@ void Search(int _cur, int _sec) {
 	Find(_cur - 1, _sec);
 	Find(_cur + 1, _sec);
 
-	if (_cur != 1 && _cur != 0) {
+	if (_cur != 0) {
 		Find(_cur * 2, _sec);
 	}
 
