@@ -18,7 +18,7 @@ int zeroCnt = 0;
 int safeZoneCnt = 0;
 int ans = 0;
 
-int example[3];
+//int example[3];
 
 vector<pair<int, int>> virusVec;
 queue<pair<int, int>> virusQue;
@@ -148,11 +148,13 @@ void ChooseWall(int _fst, int _snd, int _trd) {
 	visitCpy[((_trd - 1) / m) + 1][_trd % m == 0 ? m : _trd % m] = true;
 
 	if (IsWallValue(_fst, _snd, _trd)) {
-		safeZoneCnt = zeroCnt - BFS();
+		safeZoneCnt = zeroCnt - 3 - BFS();
+		//if (ans < safeZoneCnt) {
+		//	example[0] = _fst;
+		//	example[1] = _snd;
+		//	example[2] = _trd;
+		//}
 		ans = ans < safeZoneCnt ? safeZoneCnt : ans;
-		example[0] = _fst;
-		example[1] = _snd;
-		example[2] = _trd;
 	}
 
 	lab[((_fst - 1) / m) + 1][_fst % m == 0 ? m : _fst % m] = 0;
@@ -164,8 +166,17 @@ void Solve() {
 	int lastIdx = n * m;
 
 	for (int i = 1; i <= lastIdx; i++) {
+		if (lab[((i - 1) / m) + 1][i % m == 0 ? m : i % m] != 0)
+			continue;
+
 		for (int j = i + 1; j <= lastIdx; j++) {
+			if (lab[((j - 1) / m) + 1][j % m == 0 ? m : j % m] != 0)
+				continue;
+
 			for (int k = j + 1; k <= lastIdx; k++) {
+				if (lab[((k - 1) / m) + 1][k % m == 0 ? m : k % m] != 0)
+					continue;
+
 				ChooseWall(i, j, k);
 			}
 		}
