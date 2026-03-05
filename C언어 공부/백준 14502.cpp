@@ -18,7 +18,7 @@ int zeroCnt = 0;
 int safeZoneCnt = 0;
 int ans = 0;
 
-//int example[3];
+int example[3];
 
 vector<pair<int, int>> virusVec;
 queue<pair<int, int>> virusQue;
@@ -149,11 +149,11 @@ void ChooseWall(int _fst, int _snd, int _trd) {
 
 	if (IsWallValue(_fst, _snd, _trd)) {
 		safeZoneCnt = zeroCnt - 3 - BFS();
-		//if (ans < safeZoneCnt) {
-		//	example[0] = _fst;
-		//	example[1] = _snd;
-		//	example[2] = _trd;
-		//}
+		if (ans < safeZoneCnt) {
+			example[0] = _fst;
+			example[1] = _snd;
+			example[2] = _trd;
+		}
 		ans = ans < safeZoneCnt ? safeZoneCnt : ans;
 	}
 
