@@ -18,8 +18,6 @@ int zeroCnt = 0;
 int safeZoneCnt = 0;
 int ans = 0;
 
-int example[3];
-
 vector<pair<int, int>> virusVec;
 queue<pair<int, int>> virusQue;
 
@@ -69,32 +67,32 @@ bool IsWallValue(int __fst, int __snd, int __trd) {
 	int cnt[3] = { 0, 0, 0 };
 
 	for (int i = 0; i < 8; i++) {
+		if (lab[((__fst - 1) / m) + 1 + wallDr[i]][(__fst % m == 0 ? m : __fst % m) + wallDc[i]] == 1) {
+			cnt[0]++;
+		}
 		if (cnt[0] >= 2) {
 			cnt[0] = 10;
 			break;
 		}
-		if (lab[((__fst - 1) / m) + 1 + wallDr[i]][(__fst % m == 0 ? m : __fst % m) + wallDc[i]] == 1) {
-			cnt[0]++;
-		}
 	}
 
 	for (int i = 0; i < 8; i++) {
+		if (lab[((__snd - 1) / m) + 1 + wallDr[i]][(__snd % m == 0 ? m : __snd % m) + wallDc[i]] == 1) {
+			cnt[1]++;
+		}
 		if (cnt[1] >= 2) {
 			cnt[1] = 10;
 			break;
 		}
-		if (lab[((__snd - 1) / m) + 1 + wallDr[i]][(__snd % m == 0 ? m : __snd % m) + wallDc[i]] == 1) {
-			cnt[1]++;
-		}
 	}
 
 	for (int i = 0; i < 8; i++) {
+		if (lab[((__trd - 1) / m) + 1 + wallDr[i]][(__trd % m == 0 ? m : __trd % m) + wallDc[i]] == 1) {
+			cnt[2]++;
+		}
 		if (cnt[2] >= 2) {
 			cnt[2] = 10;
 			break;
-		}
-		if (lab[((__trd - 1) / m) + 1 + wallDr[i]][(__trd % m == 0 ? m : __trd % m) + wallDc[i]] == 1) {
-			cnt[2]++;
 		}
 	}
 
@@ -149,11 +147,6 @@ void ChooseWall(int _fst, int _snd, int _trd) {
 
 	if (IsWallValue(_fst, _snd, _trd)) {
 		safeZoneCnt = zeroCnt - 3 - BFS();
-		if (ans < safeZoneCnt) {
-			example[0] = _fst;
-			example[1] = _snd;
-			example[2] = _trd;
-		}
 		ans = ans < safeZoneCnt ? safeZoneCnt : ans;
 	}
 
@@ -165,11 +158,11 @@ void ChooseWall(int _fst, int _snd, int _trd) {
 void Solve() {
 	int lastIdx = n * m;
 
-	for (int i = 1; i <= lastIdx; i++) {
+	for (int i = 1; i <= lastIdx - 2; i++) {
 		if (lab[((i - 1) / m) + 1][i % m == 0 ? m : i % m] != 0)
 			continue;
 
-		for (int j = i + 1; j <= lastIdx; j++) {
+		for (int j = i + 1; j <= lastIdx - 1; j++) {
 			if (lab[((j - 1) / m) + 1][j % m == 0 ? m : j % m] != 0)
 				continue;
 
@@ -191,55 +184,3 @@ int main(void) {
 	Solve();
 	return 0;
 }
-
-//#include <iostream>
-//#include <vector>
-//
-//using namespace std;
-//
-//int lab[10][10];
-//bool virusVisit[10][10];
-//bool wallVisit[10][10];
-//vector<pair<int, int>> virus;
-//vector<pair<int, int>> wall;
-//int n, m;
-//
-//void Init() {
-//	ios::sync_with_stdio(false);
-//	cout.tie(0);
-//	cin.tie(0);
-//
-//	cin >> n >> m;
-//	int input;
-//
-//	for (int i = 0; i < n; i++) {
-//		for (int j = 0; j < m; j++) {
-//			cin >> input;
-//			lab[i][j] = input;
-//
-//			if (input == 1) {
-//				wall.push_back({ i, j });
-//				wallVisit[i][j] = true;
-//			}
-//			if (input == 2) {
-//				virus.push_back({ i, j });
-//				virusVisit[i][j] = true;
-//			}
-//		}
-//	}
-//
-//	for (int i = 0; i < 10; i++) {
-//		lab[0][i] = 1;
-//		lab[9][i] = 1;
-//		lab[i][0] = 1;
-//		lab[i][9] = 1;
-//	}
-//}
-//
-//void SetWall() {
-//}
-//
-//int main(void) {
-//
-//	return 0;
-//}
