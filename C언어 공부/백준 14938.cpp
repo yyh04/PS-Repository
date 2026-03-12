@@ -73,14 +73,14 @@ void Solve() {
 	for (int i = 1; i <= n; i++) {
 		int tmp = 0;
 		for (int j = 1; j <= n; j++) {
-			if (graph[i][j] < m) {
+			if (graph[i][j] <= m) {
 				tmp += itemCnt[j];
 			}
 		}
 		ans = ans < tmp ? tmp : ans;
 	}
 
-	cout << ans;
+	cout << ans << '\n';
 }
 
 //void Print() {
