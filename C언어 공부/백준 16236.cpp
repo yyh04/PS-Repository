@@ -59,7 +59,7 @@ void Print() {
 	cout << '\n';
 }
 
-void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물고기까지 거리
+void BFS() { 
 	bool visit[20][20] = { false, };
 
 	queue<pair<pair<int, int>, int>> BFSQue;
@@ -81,7 +81,7 @@ void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물
 				if (aqua[sharkNextR][sharkNextC] != 0 && aqua[sharkNextR][sharkNextC] != sharkSize) {
 					timer += searchLevel;
 					aqua[sharkNextR][sharkNextC] = 9;
-					aqua[sharkCurR][sharkCurC] = 0;
+					aqua[sharkPos.first][sharkPos.second] = 0;
 					sharkPos = { sharkNextR, sharkNextC };
 
 					if (++sharkEatCnt >= sharkSize) {
@@ -93,7 +93,9 @@ void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물
 					cout << searchLevel << "만큼 이동함\n";
 					cout << "sharkSize: " << sharkSize << '\n';
 					cout << "sharkEatCnt: " << sharkEatCnt << '\n';
-					cout << "상어의 현재 위치: [" << sharkPos.first + 1 << "][" << sharkPos.second + 1 << "]\n\n";
+					cout << "상어의 현재 위치: [" << sharkPos.first + 1 << "][" << sharkPos.second + 1 << "]\n";
+					cout << "timer: " << timer << '\n';
+					cout << '\n';
 					Print();
 
 					return;
