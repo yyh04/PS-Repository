@@ -10,8 +10,8 @@ int n;
 int timer;
 int sharkSize = 2;
 int sharkEatCnt = 0;
-int dr[4] = {1, 0, -1, 0};
-int dc[4] = {0, -1, 0, 1};
+int dr[4] = {-1, 0, 0, 1};
+int dc[4] = {0, -1, 1, 0};
 int aqua[20][20];
 
 pair<int, int> sharkPos;
@@ -31,13 +31,11 @@ void Init() {
 			cin >> input;
 			if (input != 9 && input != 0) {
 				fishVec[input].push_back({ i, j });
-				aqua[i][j] = input;
 			}
 			else if (input == 9) {
 				sharkPos = { i, j };
-				aqua[i][j] = 0;
 			}
-
+			aqua[i][j] = input;
 		}
 	}
 }
@@ -49,12 +47,24 @@ bool IsInRange(int _r, int _c) {
 	return false;
 }
 
+void Print() {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << aqua[i][j] << ' ';
+		}
+
+		cout << '\n';
+	}
+
+	cout << '\n';
+}
+
 void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물고기까지 거리
 	bool visit[20][20] = { false, };
 
 	queue<pair<pair<int, int>, int>> BFSQue;
 
-	BFSQue.push({ sharkPos, 0 });
+	BFSQue.push({ sharkPos, 1 });
 	visit[sharkPos.first][sharkPos.second] = true;
 
 	while (!BFSQue.empty()) {
@@ -70,7 +80,8 @@ void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물
 			if (IsInRange(sharkNextR, sharkNextC) && !visit[sharkNextR][sharkNextC] && aqua[sharkNextR][sharkNextC] <= sharkSize) {
 				if (aqua[sharkNextR][sharkNextC] != 0 && aqua[sharkNextR][sharkNextC] != sharkSize) {
 					timer += searchLevel;
-					aqua[sharkNextR][sharkNextC] = 0;
+					aqua[sharkNextR][sharkNextC] = 9;
+					aqua[sharkCurR][sharkCurC] = 0;
 					sharkPos = { sharkNextR, sharkNextC };
 
 					if (++sharkEatCnt >= sharkSize) {
@@ -78,7 +89,13 @@ void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물
 						sharkEatCnt = 0;
 					}
 
-					cout << "물고기 사냥" << '\n';
+					cout << "[" << sharkNextR + 1 << "]" << "[" << sharkNextC + 1 << "]" << ": 물고기 사냥" << '\n';
+					cout << searchLevel << "만큼 이동함\n";
+					cout << "sharkSize: " << sharkSize << '\n';
+					cout << "sharkEatCnt: " << sharkEatCnt << '\n';
+					cout << "상어의 현재 위치: [" << sharkPos.first + 1 << "][" << sharkPos.second + 1 << "]\n\n";
+					Print();
+
 					return;
 				}
 
@@ -91,6 +108,7 @@ void BFS() { // 먹을 수 있는 물고기가 있는지, 가장 가까운 물고기, 가장 가까운 물
 
 	cout << timer << '\n';
 	flag = true;
+	cout << "\n먹을 수 있는 물고기를 찾을 수 없음\n";
 }
 
 void Solve() {
