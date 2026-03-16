@@ -63,6 +63,7 @@ void BFS() {
 	bool visit[20][20] = { false, };
 
 	queue<pair<pair<int, int>, int>> BFSQue;
+	pair<pair<int, int>, int> eatableFish = { {99, 99}, 99 };
 
 	BFSQue.push({ sharkPos, 1 });
 	visit[sharkPos.first][sharkPos.second] = true;
@@ -73,32 +74,41 @@ void BFS() {
 		int searchLevel = BFSQue.front().second;
 		BFSQue.pop();
 
+		if (searchLevel > eatableFish.second) {
+			timer += eatableFish.second;
+			aqua[eatableFish.first.first][eatableFish.first.second] = 9;
+			aqua[sharkPos.first][sharkPos.second] = 0;
+			sharkPos = { eatableFish.first.first, eatableFish.first.second };
+
+			if (++sharkEatCnt >= sharkSize) {
+				sharkSize++;
+				sharkEatCnt = 0;
+			}
+
+			cout << "[" << eatableFish.first.first + 1 << "]" << "[" << eatableFish.first.second + 1 << "]" << ": 물고기 사냥" << '\n';
+			cout << searchLevel << "만큼 이동함\n";
+			cout << "sharkSize: " << sharkSize << '\n';
+			cout << "sharkEatCnt: " << sharkEatCnt << '\n';
+			cout << "상어의 현재 위치: [" << sharkPos.first + 1 << "][" << sharkPos.second + 1 << "]\n";
+			cout << "timer: " << timer << '\n';
+			cout << '\n';
+			Print();
+
+			return;
+		}
+
 		for (int i = 0; i < 4; i++) {
 			int sharkNextR = sharkCurR + dr[i];
 			int sharkNextC = sharkCurC + dc[i];
 
 			if (IsInRange(sharkNextR, sharkNextC) && !visit[sharkNextR][sharkNextC] && aqua[sharkNextR][sharkNextC] <= sharkSize) {
 				if (aqua[sharkNextR][sharkNextC] != 0 && aqua[sharkNextR][sharkNextC] != sharkSize) {
-					timer += searchLevel;
-					aqua[sharkNextR][sharkNextC] = 9;
-					aqua[sharkPos.first][sharkPos.second] = 0;
-					sharkPos = { sharkNextR, sharkNextC };
-
-					if (++sharkEatCnt >= sharkSize) {
-						sharkSize++;
-						sharkEatCnt = 0;
+					if (eatableFish.first.first > sharkNextR) {
+						eatableFish = { {sharkNextR, sharkNextC}, searchLevel };
 					}
-
-					cout << "[" << sharkNextR + 1 << "]" << "[" << sharkNextC + 1 << "]" << ": 물고기 사냥" << '\n';
-					cout << searchLevel << "만큼 이동함\n";
-					cout << "sharkSize: " << sharkSize << '\n';
-					cout << "sharkEatCnt: " << sharkEatCnt << '\n';
-					cout << "상어의 현재 위치: [" << sharkPos.first + 1 << "][" << sharkPos.second + 1 << "]\n";
-					cout << "timer: " << timer << '\n';
-					cout << '\n';
-					Print();
-
-					return;
+					else if (eatableFish.first.first == sharkNextR && eatableFish.first.second > sharkNextC) {
+						eatableFish = { {sharkNextR, sharkNextC}, searchLevel };
+					}
 				}
 
 				visit[sharkNextR][sharkNextC] = true;
@@ -107,7 +117,6 @@ void BFS() {
 		}
 	}
 	
-
 	cout << timer << '\n';
 	flag = true;
 	cout << "\n먹을 수 있는 물고기를 찾을 수 없음\n";
