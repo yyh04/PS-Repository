@@ -7,7 +7,6 @@
 //int r, c, t;
 //int ans = 0;
 //int space[51][51];
-//int spaceTmp[51][51];
 //int dr[4] = { -1, 0, 1, 0 };
 //int dc[4] = { 0, 1, 0, -1 };
 //
@@ -131,7 +130,6 @@ using namespace std;
 int r, c, t;
 int ans = 0;
 int space[51][51];
-int spaceTmp[51][51];
 int dr[4] = { -1, 0, 1, 0 };
 int dc[4] = { 0, 1, 0, -1 };
 
@@ -213,42 +211,56 @@ void Print() {
 }
 
 void Diffuse() {
-	int diffuseAmt;
-	int diffuseAreaCnt = 0;
+	int spaceTmp[51][51] = { 0, };
 
 	for (int i = 0; i < dustPos.size(); i++) {
+		int diffuseAreaCnt = 0;
 		int curDustPosR = dustPos[i].first;
 		int curDustPosC = dustPos[i].second;
 
 		if (!IsInRange(curDustPosR, curDustPosC)) {
-			return;
+			continue;;
 		}
 
-		diffuseAmt = space[curDustPosR][curDustPosC] / 5;
+		cout << "(" << curDustPosR << ", " << curDustPosC << ") " << space[curDustPosR][curDustPosC] << "확산\n";
+		int diffuseAmt = space[curDustPosR][curDustPosC] / 5;
+
+		if (diffuseAmt <= 0) {
+			continue;
+		}
 
 		for (int j = 0; j < 4; j++) {
 			int nextDustPosR = curDustPosR + dr[j];
 			int nextDustPosC = curDustPosC + dc[j];
 
-			if (!IsInRange(nextDustPosR, nextDustPosC)) {
-				return;
+			if (!IsInRange(nextDustPosR, nextDustPosC) || space[nextDustPosR][nextDustPosC] == -1) {
+				continue;
 			}
 
-			space[nextDustPosR][nextDustPosC] += diffuseAmt;
+			spaceTmp[nextDustPosR][nextDustPosC] += diffuseAmt;
 			diffuseAreaCnt++;
 		}
 
-		space[curDustPosR][curDustPosC] = space[curDustPosR][curDustPosC] - diffuseAmt * diffuseAreaCnt;
-	// 수정하자@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		spaceTmp[curDustPosR][curDustPosC] += space[curDustPosR][curDustPosC] - (diffuseAmt * diffuseAreaCnt);
 	}
+
+	memcpy(space, spaceTmp, sizeof(spaceTmp));
+	cout << "Diffuse()\n";
+	Print();
 }
 
 void Circulate() {
+	int spaceTmp[51][51] = { 0, };
+	dustPos.clear();
 	ans -= (space[airconPos.first.first - 1][1] + space[airconPos.second.first + 1][1]);
 
 	for (int i = 1; i <= r; i++) {
 		for (int j = 1; j <= c; j++) {
 			spaceTmp[i + circleArr[i][j].first][j + circleArr[i][j].second] = space[i][j];
+			
+			if (space[i][j] > 0) {
+				dustPos.push_back({ i + circleArr[i][j].first, j + circleArr[i][j].second });
+			}
 		}
 	}
 
@@ -256,6 +268,7 @@ void Circulate() {
 	space[airconPos.first.first][airconPos.first.second + 1] = 0;
 	space[airconPos.second.first][airconPos.second.second + 1] = 0;
 
+	cout << "Circulate()\n";
 	Print();
 }
 
